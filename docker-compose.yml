@@ -1,0 +1,63 @@
+version: '3'
+
+services:
+
+  web:
+    env_file: .env
+    build:
+      context: .
+      dockerfile: web/Dockerfile
+    volumes:
+      - $PWD/web:/home
+    working_dir: /home
+    command: /bin/sh run.sh
+    links:
+      - db
+
+  server:
+    env_file: .env
+    image: nginx:1.13-alpine
+    volumes:
+      - $PWD/server/:/etc/nginx/conf.d/
+    ports:
+      - ${WEB_PORT}:${WEB_PORT}
+    working_dir: /etc/nginx/conf.d
+    logging:
+      driver: "none"
+    depends_on:
+      - web
+    command: /bin/sh run.sh
+
+  db:
+    env_file: .env
+    image: mysql
+    volumes:
+      - $PWD/db:/var/lib/mysql
+    logging:
+      driver: "none"
+
+  adminer:
+    image: adminer
+    ports:
+      - ${ADMINER_PORT}:8080
+    links:
+      - db
+
+  sass:
+    build:
+      context: web
+      dockerfile: Dockerfile-SASS
+    volumes:
+      - $PWD/web/static:/home
+    working_dir: /home
+    command: sass --watch style.scss:style.css
+
+  phantomjs:
+    env_file: .env
+    image: slavik0/docker-alpine-phantomjs
+    volumes:
+      - $PWD/phantom:/home
+    working_dir: /home
+    links:
+      - server
+    command: phantomjs phantom.js

@@ -1,0 +1,4 @@
+FROM ruby:alpine
+
+RUN apk add --update alpine-sdk libffi-dev
+RUN gem install sass

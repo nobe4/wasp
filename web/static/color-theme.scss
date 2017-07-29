@@ -1,0 +1,18 @@
+body {
+	background: $beige;
+	color: $darkbrown;
+
+	header {
+		background: $darkbrown;
+		color: $yellow;
+	}
+
+	a { color: $green; }
+
+	button {
+		background: $green;
+		color: white;
+	}
+
+	input, textarea { color: $green; }
+}

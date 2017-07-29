@@ -1,0 +1,44 @@
+#homepage {
+	ul {
+		list-style: none;
+		margin: 0;
+
+		li {
+			max-width: 30em;
+			margin-bottom: 1em;
+			padding: 1em;
+			border-left: 5px solid $green;
+
+			p.user {
+				font-weight: bold;
+			}
+
+			p.date {
+				font-size: 0.7em;
+				margin-bottom: 1em;
+			}
+
+			form {
+				float: right;
+				font-size: .5em;
+			}
+		}
+	}
+
+	> p {
+		margin-top: 2em;
+	}
+
+	form {
+		textarea {
+			display: block;
+			width: 100%;
+			font-size: 1.3em;
+			margin-bottom: 1em;
+
+			~ button {
+				float: right;
+			}
+		}
+	}
+}

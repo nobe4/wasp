@@ -1,0 +1,9 @@
+__pycache__
+.sass-cache
+.DS_Store
+db/*
+!db/.gitkeep
+server/*.conf
+server/.htpasswd
+*.css
+*.css.map

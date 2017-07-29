@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %} Signup {% endblock %}
+
+{% block content %}
+	<div id="signup">
+
+		{% if session.logged_in %}
+			<p>Currently logged in as '{{ session.logged_username }}'.</p>
+		{% endif %}
+
+		<p>You can log in or create an account using the following form:</p>
+
+		<form action="" method="post">
+
+			<label for="name">Name</label>
+			<input type="text" id="name" name="username" required>
+
+			<label for="password">Password</label>
+			<input type="password" id="password" name="password" required>
+
+			{% if error %}
+				<div class="error">{{error}}</div>
+			{% endif %}
+
+			<button>Submit</button>
+
+		</form>
+
+	</div>
+{% endblock %}

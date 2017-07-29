@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Wasp</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename="style.css") }}">
+</head>
+<body>
+
+	<header>
+		<a class="logo" href="/"><img src="/static/wasp.svg" height="50"></a>
+		<h1>{% block title %} Wasp {% endblock %}</h1>
+
+		<nav>
+			<a href="{{ url_for('signup') }}">Signup</a>
+			<a href="{{ url_for('about') }}">About</a>
+		</nav>
+	</header>
+
+	<main>
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+			<section class="messages">
+				{% for message in messages %}
+					<p>{{ message }}</p>
+				{% endfor %}
+			</section>
+			{% endif %}
+		{% endwith %}
+
+		<section class="content">
+			{% block content %}
+			{% endblock %}
+		</section>
+	</main>
+</body>
+</html>

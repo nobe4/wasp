@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Bzz Bzz?{% endblock %}
+
+{% block content %}
+
+<div id="error">
+	<p class="error">Oh noes, error #{{ error_number}} happened</p>
+	<img src="{{ image }}">
+	<p>Go back to the <a href="{{ url_for('home') }}">homepage</a></p>
+</div>
+
+{% endblock %}

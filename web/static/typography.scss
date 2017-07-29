@@ -1,0 +1,50 @@
+:root {
+	font-size: 15px;
+	font-family: Georgia, serif;
+	text-align: justify;
+}
+
+.logo {
+	text-decoration: none;
+	margin-right: 40px;
+}
+
+h1 {
+	letter-spacing: .2ex;
+	font-variant: small-caps;
+	font-size: 2em;
+}
+
+h2 {
+	font-variant: small-caps;
+	font-size: 1.5em;
+	margin: 1em auto;
+}
+
+ul {
+	list-style: square inside;
+	margin: 1em;
+}
+
+button {
+	border: none;
+	letter-spacing: .2ex;
+	padding: 0.5em 2em;
+	cursor: pointer;
+	font: inherit;
+}
+
+input, textarea {
+	border: none;
+	background: transparent;
+	border-bottom: 2px solid $green;
+	padding: 0.3em;
+	font: inherit;
+}
+
+.error {
+	background: rgba(255, 0, 0, .5);
+	color: white;
+	padding: 1em;
+	text-align: left;
+}

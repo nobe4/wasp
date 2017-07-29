@@ -1,0 +1,32 @@
+body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	header {
+		display: flex;
+		align-items: center;
+		padding: 1.5em;
+		width: 100%;
+
+		nav {
+			a {
+				margin-left: 1em;
+				color: $yellow;
+				text-decoration: none;
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+
+	main {
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 1em;
+		max-width: 840px;
+		font-size: 1.5em;
+	}
+}

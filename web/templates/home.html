@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div id="homepage">
+
+		{% if posts %}
+			<ul>
+				{% for post in posts %}
+					<li>
+						<form action="{{ url_for('flag_post') }}" method="POST">
+							<input type="hidden" name="id" value="{{ post.id }}">
+							<button>flag</button>
+						</form>
+						<p class="user">{{ post.author_name() }}</p>
+						<p class="date">{{ post.created }}</p>
+						<p>{{ post.content|safe }}</p>
+					</li>
+				{% endfor %}
+			</ul>
+		{% else %}
+			Hu, nothing here, please start posting!
+		{% endif %}
+
+		{% if session['logged_in'] %}
+			<form action="{{ url_for('new_post') }}" method="post">
+				<label for="content">Add a new message as {{ session['logged_username'] }}:</label>
+				<textarea required id="content" name="content" rows="1"></textarea>
+				<button>Submit</button>
+				{% if error %}
+					<div class="error">{{ error }}</div>
+				{% endif %}
+			</form>
+
+		{% else %}
+
+				<p>To post a message, please <a href="{{ url_for('signup') }}">signup/login.</a> </p>
+
+		{% endif %}
+	</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+#signup {
+	p { margin-bottom: 1em; }
+
+	form {
+		padding: 2em;
+
+		label, input {
+			display: block;
+			width: 100%;
+		}
+
+		input {
+			margin-bottom: 1em;
+		}
+	}
+}

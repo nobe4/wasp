@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %} About {% endblock %}
+
+{% block content %}
+
+	<p>WASP is a very simple posting website, where you can express yourself freely.</p>
+
+	<p>There are a few rules you may want to know:</p>
+	<ul>
+		<li>You can create an account <a href="{{ url_for('signup') }}">here</a>.</li>
+		<li>Any message you post will be displayed on the general page.</li>
+		<li>Please don't spam the website, this is still a work in progress.</li>
+		<li>Messages older than 5 minutes will be removed.</li>
+	</ul>
+
+	<h2>Stats</h2>
+	<ul>
+		<li>{{ user_count }} users</li>
+		<li>{{ post_count }} posts</li>
+		<li>{{ flagged_count }} flagged posts</li>
+	</ul>
+	
+{% endblock %}
